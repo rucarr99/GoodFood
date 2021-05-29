@@ -1,0 +1,23 @@
+﻿@model IEnumerable<WADProject.Models.MenuItem>
+
+
+<section class="menu" id="menu">
+    <div class="container">
+        <div class="menu-heading">Menu</div>
+        <div class="menu-grid">
+            @foreach (var item in Model)
+            {
+                <div class="menu-hold">
+                    <div class="menu-container">
+                        <div class="menu-img">
+                            &nbsp;
+                        </div>
+                        <h1 class="menu-title">@Html.DisplayFor(model => item.Name)</h1>
+                        <p class="menu-p">@Html.DisplayFor(model => item.Description)</p>
+                        <h3 class="price">@Html.DisplayFor(model => item.Price) Lei</h3>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

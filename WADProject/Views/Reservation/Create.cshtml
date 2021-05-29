@@ -1,0 +1,40 @@
+﻿@model WADProject.Models.Reservation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <div class="book-content">
+        <div class="book-form">
+            <form asp-action="Create" class="book-form2">
+                <h1 class="book-heading">Make a reservation</h1>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group-book">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="input-book" placeholder="Name" required />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group-book">
+                    <label asp-for="NumberOfPersons"></label>
+                    <input asp-for="NumberOfPersons" class="input-book" placeholder="Number of persons" required />
+                    <span asp-validation-for="NumberOfPersons" class="text-danger"></span>
+                </div>
+                <div class="form-group-book">
+                    <label asp-for="DateApplied"></label>
+                    <input asp-for="DateApplied" class="input-book" placeholder="Date applied" required />
+                    <span asp-validation-for="DateApplied" class="text-danger"></span>
+                </div>
+                <div class="form-group-book">
+                    <label asp-for="DateOfSchedule"></label>
+                    <input asp-for="DateOfSchedule" class="input-book" placeholder="Date" required/>
+                    <span asp-validation-for="DateOfSchedule" class="text-danger"></span>
+                </div>
+                <input type="submit" value="Book" class="book-btn"/><br>
+            </form>
+        </div>
+    </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

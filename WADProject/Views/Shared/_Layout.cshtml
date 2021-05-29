@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+@{
+    var message = TempData["AlertMessage"] ?? string.Empty;
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WADProject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/css/sitestyle.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-box">
+                <h3 class="heading-tertiary">GoodFood</h3>
+            </div>
+
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a class="navbar-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" asp-area="" asp-controller="MenuItem" asp-action="Index">Menu</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link-book" asp-area="" asp-controller="Reservation" asp-action="Create">Book</a>
+                </li>
+                <li class="navbar-item">
+                    <partial name ="_LoginPartial"/>
+                </li>
+            </ul>
+            <div class="toggle">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+<div>
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSectionAsync("Scripts", required: false)
+<script type="text/javascript">
+    var message = '@message';
+    if (message) {
+        alert(message);
+    }
+</script>
+</body>
+</html>
